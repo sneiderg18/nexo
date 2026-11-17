@@ -11,6 +11,8 @@ class EquipoBase(BaseModel):
     tipo: str = Field(min_length=1, max_length=50)
     area: Optional[str] = Field(default=None, max_length=100)
     ip: Optional[str] = Field(default=None, max_length=45)
+    mac: Optional[str] = Field(default=None, max_length=17)
+    serial: Optional[str] = Field(default=None, max_length=100)
     criticidad: Criticidad = Criticidad.media
 
 
@@ -23,6 +25,8 @@ class EquipoActualizar(BaseModel):
     tipo: Optional[str] = Field(default=None, min_length=1, max_length=50)
     area: Optional[str] = Field(default=None, max_length=100)
     ip: Optional[str] = Field(default=None, max_length=45)
+    mac: Optional[str] = Field(default=None, max_length=17)
+    serial: Optional[str] = Field(default=None, max_length=100)
     criticidad: Optional[Criticidad] = None
     activo: Optional[bool] = None
 
@@ -32,4 +36,5 @@ class EquipoRespuesta(EquipoBase):
 
     id: int
     activo: bool
+    uuid_agente: Optional[str] = None
     creado_en: datetime

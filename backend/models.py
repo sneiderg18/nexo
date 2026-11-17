@@ -69,6 +69,9 @@ class Equipo(Base):
     tipo = Column(String(50), nullable=False)  # PC, impresora, servidor, etc.
     area = Column(String(100), nullable=True)
     ip = Column(String(45), nullable=True)
+    mac = Column(String(17), nullable=True)
+    serial = Column(String(100), nullable=True)
+    uuid_agente = Column(String(36), unique=True, nullable=True)
     criticidad = Column(Enum(Criticidad), nullable=False, default=Criticidad.media)
     activo = Column(Boolean, default=True)
     creado_en = Column(DateTime, default=datetime.utcnow)
